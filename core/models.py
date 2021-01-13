@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from rest_framework import routers, serializers, viewsets
+
 
 class Game(models.Model):
     MAX_SCORE_CHOICES = ((301, 301), (501, 501), (701, 701))

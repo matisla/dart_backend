@@ -50,7 +50,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "core.middleware.login_middleware",
+    # "core.middleware.login_middleware",
 ]
 
 ROOT_URLCONF = "dart_app.urls"
@@ -126,3 +126,9 @@ STATIC_URL = "/static/"
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 LOGIN_REDIRECT_URL = "/"
+
+# REST API config
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly",
+}
