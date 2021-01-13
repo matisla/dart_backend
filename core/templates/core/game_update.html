@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="container">
+	<h1 class="text-center">Select Player - {{ game }}</h1>
+	<table class="table">
+		<thead>
+			<tr class="text-center">
+				<td>place</td>
+				<td>user</td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for user in game.users.all %}
+			<tr class="text-center">
+				<td>{{ forloop.counter}}</td>
+				<td>{{ user }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<a class="btn btn-primary" href="?player={{ game.users.first }}">Start</a>
+</div>
+{% endblock %}

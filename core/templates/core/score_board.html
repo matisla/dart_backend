@@ -1,0 +1,21 @@
+{% load core_extra %}
+<table class="table">
+	<thead>
+		<tr class="text-center">
+			<td>User</td>
+			<td>Set</td>
+			<td>Leg</td>
+			<td>Score</td>
+		</tr>
+	</thead>
+	<tbody>
+		{% for player in game.users.all %}
+		<tr class="text-center{% if player == selected_player %} table-warning{% endif %}">
+			<td>{{ player }}</td>
+			<td>{% nb_sets game player %}</td>
+			<td>{% nb_legs game player %}</td>
+			<td>{% score game player %}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>

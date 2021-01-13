@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+	<h1 class="text-center">{{ game }}</h1>
+	<div class="p-3 border rounded">
+		{% include 'core/score_board.html' %}
+	</div>
+	<div class="row">
+		<form method="POST">
+			{% csrf_token %}
+			<div class="input-group py-3">
+			    <div class="input-group-text">score</div>
+			    <input type="number" class="form-control" id="id_score"
+				name="score" value="0">
+			    <button type="submit" class="btn btn-primary input-group-text">validate</div>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}
