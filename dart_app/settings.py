@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "crispy_forms",
     "core",
+    "account"
 ]
 
 MIDDLEWARE = [
@@ -126,6 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = "/static/"
+APPEND_SLASH = True
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 

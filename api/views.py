@@ -13,27 +13,6 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all().order_by("username")
-    serializer_class = UserSerializer
-
-    def list(self, request):
-        if request.GET:
-            print(request.GET)
-            queryset = User.objects.filter(**request.GET)
-        else:
-            queryset = User.objects.all()
-
-        context = {
-            "request": request,
-        }
-
-        serializer = UserSerializer(queryset, many=True, context=context)
-        print(queryset)
-
-        return Response(serializer.data)
-
-
 class GameViewSet(viewsets.ModelViewSet):
     queryset = Game.objects.all()
     serializer_class = GameSerializer
