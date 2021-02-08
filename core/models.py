@@ -17,7 +17,7 @@ class Game(models.Model):
         ("master", "master out"),
         ("double", "double out"),
     )
-    users = models.ManyToManyField(User)
+    users = models.ManyToManyField(User, related_name="games")
     finished = models.BooleanField(default=False)
     best_of = models.IntegerField(default=3)
     max_score = models.IntegerField(choices=MAX_SCORE_CHOICES)

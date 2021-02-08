@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_extensions",
+    "corsheaders",
     "rest_framework",
+    "rest_framework.authtoken",
     "crispy_forms",
     "core",
 ]
@@ -45,6 +48,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -109,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Etc/GMT+1"
 
 USE_I18N = True
 
@@ -130,5 +134,9 @@ LOGIN_REDIRECT_URL = "/"
 # REST API config
 
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly",
+    "DEFAULT_AUTHENTICATION_CLASSES": [],
 }
+
+# CORS HEADERS
+
+CORS_ALLOWED_ORIGINS = ["http://localhost:8080"]
